@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dhruvil Raithatha — DevOps &amp; Site Reliability Engineer</title>
+<meta name="description" content="Dhruvil Raithatha — DevOps & Site Reliability Engineer. Five years building and operating cloud infrastructure on AWS and Azure for banking, AML, and observability platforms." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dhruvil Raithatha — Senior DevOps & SRE" />
+<meta property="og:description" content="Five years building and operating cloud infrastructure on AWS and Azure. Terraform, Kubernetes, CI/CD, and observability." />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236366f1'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EDR%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:      #ffffff;
+    --ink:     #0e1424;
+    --body:    #475068;
+    --muted:   #6b7588;
+    --faint:   #97a0b3;
+    --line:    #e9ebf2;
+    --glass:   rgba(255,255,255,.62);
+    --glass-2: rgba(255,255,255,.78);
+    --glass-brd: rgba(255,255,255,.85);
+    --acc:     #6366f1;
+    --acc-2:   #8b5cf6;
+    --acc-3:   #3b82f6;
+    --grad:    linear-gradient(120deg, #6366f1 0%, #8b5cf6 48%, #3b82f6 100%);
+    --shadow:  0 8px 30px -12px rgba(46,41,120,.22);
+    --shadow-lg: 0 24px 60px -24px rgba(46,41,120,.35);
+    --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--body);
+    font-family: var(--sans); font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: var(--acc); text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 6px; }
+
+  /* aurora background */
+  .blob { position: fixed; border-radius: 50%; filter: blur(72px); z-index: 0; pointer-events: none; opacity: .55; }
+  .blob.a { width: 460px; height: 460px; background: #c7d2fe; top: -140px; left: -120px; animation: float1 18s ease-in-out infinite; }
+  .blob.b { width: 400px; height: 400px; background: #bfdbfe; top: 60px; right: -140px; animation: float2 22s ease-in-out infinite; }
+  .blob.c { width: 440px; height: 440px; background: #ddd6fe; bottom: -160px; left: 28%; animation: float1 26s ease-in-out infinite; }
+  @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(28px,-22px); } }
+  @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-26px,24px); } }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* nav */
+  header.nav { position: sticky; top: 0; z-index: 30; }
+  .nav-in {
+    max-width: 760px; margin: 12px auto 0; padding: 10px 14px 10px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--glass-2); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-brd); border-radius: 16px; box-shadow: var(--shadow);
+  }
+  @media (max-width: 800px) { .nav-in { margin: 12px 16px 0; } }
+  .logo { font-family: var(--sans); font-weight: 700; font-size: .98rem; color: var(--ink); letter-spacing: -.012em; white-space: nowrap; }
+  .nav-links { display: flex; gap: 22px; font-size: .9rem; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 640px) { header.nav { display: none; } }
+
+  .btn {
+    font-family: var(--sans); font-weight: 600; font-size: .9rem;
+    background: var(--grad); color: #fff; border: 0; border-radius: 11px;
+    padding: 10px 17px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 8px 20px -8px rgba(99,102,241,.6);
+    transition: transform .16s ease, box-shadow .16s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(99,102,241,.7); color: #fff; }
+  .btn svg { width: 16px; height: 16px; }
+  .btn.sm { padding: 8px 14px; font-size: .85rem; border-radius: 10px; }
+
+  /* hero */
+  .hero { padding: 56px 0 30px; }
+  .pill-avail {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .82rem; font-weight: 500; color: #4338ca;
+    background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.22);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 24px;
+  }
+  .pill-avail .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,.5); animation: ping 2.4s ease-out infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,.5); } 70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+
+  .eyebrow { font-family: var(--mono); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); margin: 0 0 16px; }
+  h1.name {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(3.3rem, 11vw, 5.6rem); line-height: .98; letter-spacing: -.04em;
+    color: var(--ink); margin: 0 0 18px;
+  }
+  h1.name .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+  .tag { font-size: 1.14rem; line-height: 1.55; color: var(--body); max-width: 33em; margin: 0 0 28px; }
+  .tag b { color: var(--ink); font-weight: 600; }
+
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-bottom: 40px; }
+  .ghost {
+    font-family: var(--sans); font-weight: 500; font-size: .92rem; cursor: pointer;
+    background: var(--glass); border: 1px solid var(--line); border-radius: 11px;
+    padding: 10px 16px; color: var(--ink); display: inline-flex; align-items: center; gap: 8px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: border-color .16s ease, transform .16s ease;
+  }
+  .ghost:hover { border-color: var(--acc); transform: translateY(-2px); }
+  .ghost svg { width: 15px; height: 15px; color: var(--acc); }
+  .ghost .ok { color: #16a34a; }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stat {
+    flex: 1 1 150px; background: var(--glass); border: 1px solid var(--glass-brd);
+    border-radius: 16px; padding: 18px 18px 16px; box-shadow: var(--shadow);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .stat .v { font-weight: 800; font-size: 1.55rem; line-height: 1.05; letter-spacing: -.02em; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--acc); }
+  .stat .l { font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 7px; }
+
+  /* sections */
+  .sec { padding: 50px 0; }
+  .kicker { font-family: var(--mono); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); margin: 0 0 10px; }
+  h2 { font-family: var(--sans); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.1rem); letter-spacing: -.025em; color: var(--ink); margin: 0 0 24px; }
+  .lede { font-size: 1.32rem; line-height: 1.42; color: var(--ink); font-weight: 500; letter-spacing: -.01em; margin: 0 0 20px; }
+  @media (max-width: 600px) { .lede { font-size: 1.18rem; } }
+  p { margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
+  #about p.body { color: var(--body); }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* glass cards */
+  .cards { display: flex; flex-wrap: wrap; gap: 16px; }
+  .card {
+    flex: 1 1 320px; background: var(--glass); border: 1px solid var(--glass-brd);
+    border-radius: 18px; padding: 24px; box-shadow: var(--shadow);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: transform .2s ease, box-shadow .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .card::before { content: none; }
+  .card .ic { width: 46px; height: 46px; border-radius: 13px; background: var(--grad); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 10px 20px -8px rgba(99,102,241,.65); }
+  .card .ic svg { width: 23px; height: 23px; color: #fff; }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .card h4 { font-family: var(--sans); font-weight: 700; font-size: 1.12rem; color: var(--ink); margin: 0 0 9px; letter-spacing: -.01em; }
+  .card p { font-size: .93rem; color: var(--body); margin: 0; }
+  .card .tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+  .card .tech span { font-family: var(--mono); font-size: .68rem; color: var(--acc); background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18); border-radius: 6px; padding: 3px 8px; }
+
+  /* experience */
+  .exp-sub { font-size: .96rem; color: var(--muted); margin: 0 0 30px; }
+  .stint {
+    position: relative; margin-bottom: 18px;
+    background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 18px;
+    padding: 26px; box-shadow: var(--shadow);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .stint:last-child { margin-bottom: 0; }
+  .stint-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .stint-head .t { font-weight: 700; color: var(--ink); font-size: 1.18rem; letter-spacing: -.01em; }
+  .stint-head .w { font-family: var(--mono); font-size: .74rem; color: #fff; background: var(--grad); padding: 4px 10px; border-radius: 999px; margin-left: auto; }
+  .proj { margin: 0 0 20px; }
+  .proj:last-child { margin-bottom: 0; }
+  .proj .p { font-family: var(--mono); font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--acc-2); margin: 0 0 10px; }
+  .proj ul { margin: 0; padding-left: 18px; }
+  .proj li { margin-bottom: 8px; color: var(--body); }
+  .proj li::marker { color: var(--acc); }
+
+  /* skills */
+  .srow { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 15px 0; border-top: 1px solid var(--line); align-items: flex-start; }
+  .srow:first-child { border-top: 0; }
+  .srow .cat { flex: 0 0 140px; font-family: var(--mono); font-size: .78rem; font-weight: 600; color: var(--ink); padding-top: 5px; }
+  .srow .val { flex: 1 1 280px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: .82rem; color: var(--ink); background: var(--glass); border: 1px solid var(--line); padding: 6px 13px; border-radius: 999px; transition: border-color .15s ease, color .15s ease; }
+  .chip:hover { border-color: var(--acc); color: var(--acc); }
+
+  /* footer CTA */
+  footer { position: relative; z-index: 1; margin-top: 30px; }
+  .cta {
+    max-width: 760px; margin: 0 auto; padding: 44px 32px;
+    background: var(--grad); border-radius: 24px; color: #fff; text-align: center;
+    box-shadow: 0 30px 60px -28px rgba(99,102,241,.65);
+  }
+  @media (max-width: 800px) { .cta { margin: 0 16px; border-radius: 20px; padding: 38px 22px; } }
+  .cta h3 { font-family: var(--sans); font-weight: 800; font-size: 1.9rem; letter-spacing: -.025em; margin: 0 0 8px; }
+  @media (max-width: 600px) { .cta h3 { font-size: 1.55rem; } }
+  .cta p { color: rgba(255,255,255,.86); margin: 0 0 24px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .cta .wbtn { font-family: var(--sans); font-weight: 600; font-size: .92rem; cursor: pointer; background: #fff; color: #4f46e5; border: 0; border-radius: 11px; padding: 11px 20px; display: inline-flex; align-items: center; gap: 8px; transition: transform .16s ease; }
+  .cta .wbtn:hover { transform: translateY(-2px); }
+  .cta .wbtn svg { width: 16px; height: 16px; }
+  .cta .lbtn { font-weight: 600; font-size: .92rem; color: #fff; border: 1px solid rgba(255,255,255,.5); border-radius: 11px; padding: 11px 20px; display: inline-flex; align-items: center; gap: 8px; }
+  .cta .lbtn:hover { background: rgba(255,255,255,.12); }
+  .foot-meta { text-align: center; padding: 26px 24px 40px; font-family: var(--mono); font-size: .74rem; color: var(--faint); }
+
+  /* reveal animation (safe: visible unless JS animates) */
+  .anim .reveal { opacity: 0; transform: translateY(22px); }
+  .anim .reveal.show { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .anim .reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob a"></div>
+<div class="blob b"></div>
+<div class="blob c"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <span class="logo">Dhruvil Raithatha</span>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#automation">Automation</a>
+      <a href="#skills">Skills</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap reveal">
+    <p class="eyebrow">Senior DevOps / SRE</p>
+    <h1 class="name">Dhruvil <span class="grad">Raithatha</span></h1>
+    <p class="tag">Five years building and operating cloud infrastructure on <b>AWS</b> and <b>Azure</b> for banking, AML, and observability platforms.</p>
+    <div class="hero-cta">
+      <a class="btn emailbtn" href="mailto:dhruvilr90@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span class="lbl">Email me</span>
+      </a>
+      <button type="button" class="ghost" data-copy="+91 8866861810">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+        <span class="txt">+91 88668 61810</span>
+      </button>
+      <a class="ghost" href="https://www.linkedin.com/in/dhruvil-raithatha/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 22 10.9 22 14.3V21h-4v-5.9c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.5-2.3 3.1V21H9V9Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">5+ yrs</div><div class="l">In production</div></div>
+      <div class="stat"><div class="v">~30%</div><div class="l">Faster deploys</div></div>
+      <div class="stat"><div class="v">~35%</div><div class="l">MTTR improved</div></div>
+      <div class="stat"><div class="v">~40%</div><div class="l">Less manual toil</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap reveal">
+    <p class="kicker">About</p>
+    <p class="lede">I make cloud infrastructure reproducible, well-monitored, and dependable in production.</p>
+    <p class="body">
+      I'm a Senior DevOps and Site Reliability Engineer with over five years across cloud infrastructure, CI/CD,
+      Kubernetes, and observability. I started in SRE — administering Splunk Cloud, running enterprise data
+      migrations, and handling encryption, certificate lifecycles, and on-call support.
+    </p>
+    <p class="body">
+      From there I moved into DevOps, where I provision infrastructure with <strong>Terraform</strong>, automate
+      delivery through <strong>Jenkins</strong> and <strong>GitHub Actions</strong>, and run workloads on
+      <strong>Kubernetes</strong> with Helm — so releases stay predictable and incidents stay short.
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="highlights">
+  <div class="wrap reveal">
+    <p class="kicker">What I bring</p>
+    <h2>Highlights</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19h11Z"/></svg></div>
+        <h4>Multi-cloud delivery</h4>
+        <p>Standardized AWS and Azure provisioning with reusable Terraform modules and remote state — cutting provisioning time ~35% and manual effort ~40%.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+        <h4>Faster pipelines</h4>
+        <p>Jenkins CI/CD automating build, test, Docker, and Kubernetes deploys — reducing deployment time ~30% through pipeline parallelization.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>Reliability at scale</h4>
+        <p>Proactive monitoring and structured RCA across Splunk, SignalFx, and CloudWatch — improving MTTR ~35% and incident detection ~30%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap reveal">
+    <p class="kicker">Experience</p>
+    <h2>Where I've worked</h2>
+    <p class="exp-sub">Cloud infrastructure and reliability work across banking, AML, and observability platforms.</p>
+
+    <div class="stint">
+      <div class="stint-head"><span class="t">Senior DevOps Engineer</span><span class="w">Feb 2025 — Present</span></div>
+      <div class="proj">
+        <p class="p">Banking &amp; AML platform</p>
+        <ul>
+          <li>Built and managed scalable AWS and Azure infrastructure with Terraform — reusable modules, remote state, and environment-based deployments — cutting provisioning time by <strong>~35%</strong>.</li>
+          <li>Developed Jenkins CI/CD pipelines automating build, test, Docker image creation, and Kubernetes deployment, reducing deployment time by <strong>~30%</strong> through parallelization.</li>
+          <li>Wrote Python and Bash tooling for deployments, log collection, health checks, and troubleshooting, lowering manual operational effort by <strong>~40%</strong>.</li>
+          <li>Built centralized observability with ELK Stack dashboards and log pipelines.</li>
+        </ul>
+      </div>
+      <div class="proj">
+        <p class="p">Observability platform · government cloud</p>
+        <ul>
+          <li>Wrote Terraform for compliant government-cloud deployments and enhanced Helm charts for robust lifecycle management.</li>
+          <li>Automated routine infrastructure tasks and managed secrets with AWS Secrets Manager, partnering with platform and security teams on compliance.</li>
+          <li>Reduced manual infrastructure effort by <strong>~35%</strong> and deployment time by <strong>~25%</strong> by standardizing Terraform and Helm workflows across regulated environments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stint">
+      <div class="stint-head"><span class="t">Senior Site Reliability Engineer</span><span class="w">Apr 2021 — Jan 2025</span></div>
+      <div class="proj">
+        <p class="p">Splunk Cloud</p>
+        <ul>
+          <li>Administered the Splunk Cloud platform — application-level tasks, secure configuration changes, and environment migrations.</li>
+          <li>Performed DDAA-to-DDSS data migration with validation, monitoring, and issue resolution during production cutovers.</li>
+          <li>Managed EMEK/KMS encryption keys, SSL/TLS renewals, and CORS configurations for secure, compliant operations.</li>
+          <li>Supported autoscaling for performance, availability, and cost efficiency; monitored with SignalFx, CloudWatch, and Splunk and resolved escalated incidents within SLA on call.</li>
+          <li>Authored SOPs and validated automation, improving onboarding and cutting recurrence — improved MTTR by <strong>~35%</strong> and incident detection time by <strong>~30%</strong> through RCA, runbook automation, and faster triage.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="automation">
+  <div class="wrap reveal">
+    <p class="kicker">Selected automation</p>
+    <h2>Things I've built</h2>
+    <p class="exp-sub">A few of the cloud automation tools I've built end to end across AWS and Azure.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Scheduled EC2 start / stop</h4>
+        <p>AWS Lambda functions on EventBridge cron schedules that start and stop EC2 instances by tag (Type / Env) — powering off non-production environments outside working hours to cut compute spend, with least-privilege IAM.</p>
+        <div class="tech"><span>Lambda</span><span>EventBridge</span><span>Python</span><span>boto3</span><span>IAM</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+        <h4>Launch template auto-update</h4>
+        <p>A Lambda that finds the newest AMI, updates the EC2 launch template to it, promotes it to the default version, and prunes old versions — keeping Auto Scaling Group refreshes always on the latest image.</p>
+        <div class="tech"><span>Lambda</span><span>EC2</span><span>AMI</span><span>Auto Scaling</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8"/><path d="M1 4h22v4H1zM10 12h4"/></svg></div>
+        <h4>Tag-driven AMI backups &amp; cleanup</h4>
+        <p>Lambda functions that create daily AMIs of EC2 instances tagged for backup, applying a retention policy and a delete-on date, then deregister expired AMIs and delete their snapshots. Reworked with boto3 paginators to handle accounts with 1,000+ snapshots.</p>
+        <div class="tech"><span>Lambda</span><span>EC2</span><span>AMI</span><span>boto3</span><span>CloudWatch Events</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h4>Cross-region AMI replication</h4>
+        <p>A Lambda that copies AMIs to a second AWS region for disaster recovery, tagging each copy with an expiry date — paired with a cleanup function that deregisters expired copies and their snapshots on schedule.</p>
+        <div class="tech"><span>Lambda</span><span>AMI</span><span>Multi-region</span><span>DR</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m17 2 4 4-4 4"/><path d="M3 6h18"/><path d="m7 22-4-4 4-4"/><path d="M21 18H3"/></svg></div>
+        <h4>Cross-cloud data migration</h4>
+        <p>A secure pipeline moving SQL backups and client files from AWS S3 to Azure Blob Storage with AzCopy — GPG/PGP encryption in transit and SAS-token, IP-allowlisted access control.</p>
+        <div class="tech"><span>AWS S3</span><span>Azure Blob</span><span>AzCopy</span><span>GPG / PGP</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h4>Log monitoring &amp; email alerts</h4>
+        <p>A scheduled PowerShell job that scans nightly batch logs for exception patterns and sends structured HTML alerts through AWS SES on failure — replacing manual log checks with proactive notifications via Windows Task Scheduler.</p>
+        <div class="tech"><span>PowerShell</span><span>AWS SES</span><span>Task Scheduler</span><span>IAM</span></div>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h4>Secure SFTP file ingestion</h4>
+        <p>An automated ingestion pipeline on AWS Transfer Family: partners push GPG-encrypted files over SFTP into an encrypted S3 bucket, where a Lambda decrypts and routes them downstream — encrypted in transit and at rest, with IP-allowlisted access.</p>
+        <div class="tech"><span>AWS Transfer Family</span><span>SFTP</span><span>Lambda</span><span>S3</span><span>GPG</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="wrap reveal">
+    <p class="kicker">Toolbox</p>
+    <h2>Skills</h2>
+    <div class="srow"><span class="cat">Cloud</span><span class="val"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span></span></div>
+    <div class="srow"><span class="cat">IaC</span><span class="val"><span class="chip">Terraform</span><span class="chip">Remote state</span><span class="chip">Env management</span></span></div>
+    <div class="srow"><span class="cat">Containers</span><span class="val"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Helm</span></span></div>
+    <div class="srow"><span class="cat">CI / CD</span><span class="val"><span class="chip">Jenkins</span><span class="chip">GitHub Actions</span><span class="chip">Release automation</span></span></div>
+    <div class="srow"><span class="cat">Observability</span><span class="val"><span class="chip">Splunk</span><span class="chip">ELK Stack</span><span class="chip">SignalFx</span><span class="chip">CloudWatch</span></span></div>
+    <div class="srow"><span class="cat">Scripting</span><span class="val"><span class="chip">Python</span><span class="chip">Bash</span></span></div>
+    <div class="srow"><span class="cat">Config &amp; VCS</span><span class="val"><span class="chip">Puppet</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">GitLab</span></span></div>
+    <div class="srow"><span class="cat">Security</span><span class="val"><span class="chip">Secrets Manager</span><span class="chip">KMS</span><span class="chip">SSL/TLS</span><span class="chip">Access control</span></span></div>
+    <div class="srow"><span class="cat">Collaboration</span><span class="val"><span class="chip">Jira</span><span class="chip">Confluence</span></span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="cta reveal">
+    <h3>Let's build something reliable.</h3>
+    <p>Open to DevOps &amp; SRE roles. If my work fits what you're building, I'd be glad to talk.</p>
+    <div class="cta-row">
+      <button type="button" class="wbtn emailbtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span class="lbl">Email me</span>
+      </button>
+      <a class="lbtn" href="https://www.linkedin.com/in/dhruvil-raithatha/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.5 8.75 22 10.9 22 14.3V21h-4v-5.9c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.5-2.3 3.1V21H9V9Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="foot-meta">© <span id="yr"></span> Dhruvil Raithatha</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function legacyCopy(v){var t=document.createElement('textarea');t.value=v;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);}
+  function copyText(v){ if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(v).catch(function(){legacyCopy(v);});} legacyCopy(v); return Promise.resolve(); }
+
+  document.querySelectorAll('.emailbtn').forEach(function(b){
+    b.addEventListener('click', function(){
+      var a='dhruvilr90@gmail.com';
+      copyText(a).then(function(){
+        var l=b.querySelector('.lbl'); if(!l) return;
+        var o=l.textContent; l.textContent='Copied ✓';
+        setTimeout(function(){ l.textContent=o; }, 1400);
+      });
+      try{ window.location.href='mailto:'+a; }catch(e){}
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      copyText(b.getAttribute('data-copy')).then(function(){
+        var t=b.querySelector('.txt'); if(!t) return;
+        var o=t.textContent; t.textContent='Copied ✓'; t.classList.add('ok');
+        setTimeout(function(){ t.textContent=o; t.classList.remove('ok'); }, 1400);
+      });
+    });
+  });
+
+  // animations on (content stays visible if this doesn't run)
+  document.documentElement.classList.add('anim');
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: .08 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  // safety net: ensure everything is visible even if observer misfires
+  setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('show'); }); }, 1600);
+</script>
+</body>
+</html>
